@@ -1,0 +1,61 @@
+<div class="space-y-8">
+  <%= link_to people_path, class: 'btn-primary w-1/10 gap-4' do %>
+    <i class="fa fa-arrow-left"></i>
+    <p>Voltar</p>
+  <% end %>
+
+  <h1 class="text-3xl font-bold">Pessoa:</h1>
+
+  <div class="grid grid-cols-2 gap-4 mt-4">
+    <div class="form-input">
+      <h1 class="text-2xl font-bold">Nome</h1>
+      <p class="text-3xl"><%= @person.name %></p>
+    </div>
+
+    <div class="form-input">
+      <h1 class="text-2xl font-bold">E-mail</h1>
+      <p class="text-3xl"><%= @person.email %></p>
+    </div>
+
+    <div class="form-input">
+      <h1 class="text-2xl font-bold">Telefone</h1>
+      <p class="text-3xl"><%= @person.phone || '-' %></p>
+    </div>
+
+    <div class="form-input">
+      <h1 class="text-2xl font-bold">Data de Nascimento</h1>
+      <p class="text-3xl"><%= @person.birthdate&.strftime('%d/%m/%Y') || '-' %></p>
+    </div>
+  </div>
+
+  <div class="w-full border-b"></div>
+
+  <h1 class="text-3xl font-bold">Endereço:</h1>
+
+  <div class="grid grid-cols-2 gap-4 mt-4">
+    <div class="form-input">
+      <h1 class="text-2xl font-bold">Rua</h1>
+      <p class="text-3xl"><%= @person.address&.street || '-' %></p>
+    </div>
+
+    <div class="form-input">
+      <h1 class="text-2xl font-bold">Cidade</h1>
+      <p class="text-3xl"><%= @person.address&.city || '-' %></p>
+    </div>
+
+    <div class="form-input">
+      <h1 class="text-2xl font-bold">Estado</h1>
+      <p class="text-3xl"><%= @person.address&.state || '-' %></p>
+    </div>
+
+    <div class="form-input">
+      <h1 class="text-2xl font-bold">País</h1>
+      <p class="text-3xl"><%= @person.address&.country || '-' %></p>
+    </div>
+
+    <div class="form-input">
+      <h1 class="text-2xl font-bold">Código Postal</h1>
+      <p class="text-3xl"><%= @person.address&.postal_code || '-' %></p>
+    </div>
+  </div>
+</div>

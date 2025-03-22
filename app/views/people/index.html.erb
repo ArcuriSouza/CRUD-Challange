@@ -1,0 +1,64 @@
+<div class="flex items-center justify-between">
+  <h1 class="text-3xl font-bold">Pessoas</h1>
+
+  <% if @people.any? %>
+    <%= link_to new_person_path, class: 'btn-primary' do %>
+      <i class="fa fa-plus"></i>
+
+      <p>Nova pessoa</p>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="overflow-auto h-[90%] mt-8">
+  <% if @people.any? %>
+    <table class="is-zebra w-full">
+      <head>
+        <tr class="">
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+          <th>Data de Nascimento</th>
+          <th></th>
+        </tr>
+      </head>
+      <body>
+        <% @people.each do |person| %>
+          <tr>
+            <td><%= person.name %></td>
+            <td><%= person.email %></td>
+            <td><%= person.phone || '-' %></td>
+            <td><%= person.birthdate&.strftime('%d/%m/%Y') || '-' %></td>
+            <td>
+              <div class="flex gap-4 justify-end">
+                <%= link_to person_path(person), class: 'btn-primary' do %>
+                  <i class="fa fa-eye"></i>
+                <% end %>
+
+                <%= link_to edit_person_path(person), class: 'btn-primary' do %>
+                  <i class="fa fa-pencil"></i>
+                <% end %>
+
+                <%= button_to person_path(person), method: :delete,
+                                                   data: { turbo: true, turbo_confirm: 'Tem certeza?' },
+                                                   class: 'btn-primary' do %>
+                  <i class="fa fa-trash"></i>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </body>
+    </table>
+  <% else %>
+    <div>
+      <h1 class="text-2xl text-center mt-30">Não existe pessoa cadastrada no sistema.</h1>
+
+      <%= link_to new_person_path, class: 'btn-primary w-1/6 mx-auto mt-8' do %>
+        <i class="fa fa-plus"></i>
+
+        <p>Adicionar pessoa</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

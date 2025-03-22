@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@import "../stylesheets/table.scss";
+@import "../stylesheets/form.scss";
+@import "../stylesheets/buttons.scss";
+
+@theme {
+  --color-primary: #00bb00;
+  --color-primary-dark: #009900;
+  --color-secondary: #BBB;
+  --color-secondary-dark: #AAA;
+}

@@ -1,0 +1,61 @@
+<%= form_for @person, html: { class: 'space-y-6' } do |f| %>
+  <div class="grid grid-cols-2 gap-4 mt-4">
+    <div class="form-input">
+      <%= f.label :name, 'Nome' %>
+      <%= f.text_field :name, placeholder: 'Nome' %>
+    </div>
+
+    <div class="form-input">
+      <%= f.label :email, 'E-mail' %>
+      <%= f.text_field :email, placeholder: 'E-mail' %>
+    </div>
+
+    <div class="form-input">
+      <%= f.label :phone, 'Telefone' %>
+      <%= f.text_field :phone, placeholder: '(XX) XXXXX-XXXX' %>
+    </div>
+
+    <div class="form-input">
+      <%= f.label :birthdate, 'Data de Nascimento' %>
+      <%= f.text_field :birthdate, placeholder: 'dd/mm/yyyy' %>
+    </div>
+  </div>
+
+  <h1 class="text-3xl font-bold">Endereço</h1>
+
+  <%= f.fields_for :address do |fa| %>
+    <%= fa.hidden_field :id %>
+
+    <div class="grid grid-cols-2 gap-4 mt-4">
+      <div class="form-input">
+        <%= fa.label :street, 'Rua' %>
+        <%= fa.text_field :street, placeholder: 'Rua' %>
+      </div>
+
+      <div class="form-input">
+        <%= fa.label :city, 'Cidade' %>
+        <%= fa.text_field :city, placeholder: 'Cidade' %>
+      </div>
+
+      <div class="form-input">
+        <%= fa.label :state, 'Estado' %>
+        <%= fa.text_field :state, placeholder: 'Estado' %>
+      </div>
+
+      <div class="form-input">
+        <%= fa.label :country, 'País' %>
+        <%= fa.text_field :country, placeholder: 'País' %>
+      </div>
+
+      <div class="form-input">
+        <%= fa.label :postal_code, 'Código Postal' %>
+        <%= fa.text_field :postal_code, placeholder: 'Código Postal' %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="flex justify-between">
+    <%= link_to 'Voltar', people_path, class: 'btn-secondary' %>
+    <%= f.submit 'Enviar', class: 'btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,28 @@
+.btn-primary {
+  @apply flex;
+  @apply p-4;
+  @apply gap-2;
+  @apply items-center;
+  @apply justify-center;
+  @apply rounded-md;
+  @apply font-bold;
+  @apply bg-primary;
+  @apply text-white;
+  @apply hover:bg-primary-dark;
+  @apply hover:text-white;
+  @apply hover:cursor-pointer;
+}
+
+.btn-secondary {
+  @apply flex;
+  @apply p-4;
+  @apply gap-2;
+  @apply items-center;
+  @apply justify-center;
+  @apply rounded-md;
+  @apply font-bold;
+  @apply bg-secondary;
+  @apply hover:bg-secondary-dark;
+  @apply hover:text-white;
+  @apply hover:cursor-pointer;
+}

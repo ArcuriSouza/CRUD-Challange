@@ -1,0 +1,25 @@
+table.is-zebra > tbody > tr:nth-child(even) > td {
+  @apply bg-gray-300/50;
+}
+
+table th:first-child, td:first-child {
+  @apply rounded-l-xl;
+}
+
+table th:last-child, td:last-child {
+  @apply rounded-r-xl;
+}
+
+table th {
+  @apply text-lg;
+  @apply text-left;
+  @apply bg-gray-400;
+}
+
+table td, th {
+  @apply p-6;
+}
+
+table td {
+  @apply text-xl;
+}

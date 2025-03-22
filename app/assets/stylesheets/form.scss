@@ -1,0 +1,17 @@
+form {
+  i {
+    @apply pointer-events-none;
+  }
+
+  input[type="text"] {
+    @apply p-2;
+    @apply border;
+    @apply rounded-lg;
+  }
+
+  .form-input {
+    @apply flex;
+    @apply flex-col;
+    @apply gap-2;
+  }
+}
