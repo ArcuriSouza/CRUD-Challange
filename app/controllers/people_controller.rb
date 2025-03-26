@@ -49,6 +49,6 @@ class PeopleController < ApplicationController
   end
 
   def address_attributes
-    { address_attributes: %i[id street city state postal_code country] }
+    { address_attributes: %i[id _destroy street city state postal_code country] }
   end
 end

@@ -1,5 +1,5 @@
-<%= form_for @person, html: { class: 'space-y-6' } do |f| %>
-  <div class="grid grid-cols-2 gap-4 mt-4">
+<%= form_for @person, html: { class: 'space-y-6', data: { controller: 'person', 'person-address-visible-value': @person.address&.persisted? } } do |f| %>
+  <div class="grid grid-cols-2 gap-4 mt-4" >
     <div class="form-input">
       <%= f.label :name, 'Nome' %>
       <%= f.text_field :name, placeholder: 'Nome' %>
@@ -21,38 +21,58 @@
     </div>
   </div>
 
-  <h1 class="text-3xl font-bold">Endereço</h1>
+  <div class="flex items-center justify-between">
+    <h1 class="text-3xl font-bold">Endereço</h1>
 
-  <%= f.fields_for :address do |fa| %>
-    <%= fa.hidden_field :id %>
+    <%= link_to 'javascript:void(0)', class: 'btn-primary !hidden',
+                                      data: { action: 'person#toggleAddressVisible',
+                                              'person-target': 'removeButton' } do %>
+      <i class="fa fa-minus"></i>
+    <% end %>
+  </div>
 
-    <div class="grid grid-cols-2 gap-4 mt-4">
-      <div class="form-input">
-        <%= fa.label :street, 'Rua' %>
-        <%= fa.text_field :street, placeholder: 'Rua' %>
+  <div data-person-target="address" class="hidden">
+    <%= f.fields_for :address, @person.address || Address.new do |fa| %>
+      <%= fa.hidden_field :id %>
+      <%= fa.hidden_field :_destroy %>
+
+      <div class="grid grid-cols-2 gap-4 mt-4">
+        <div class="form-input">
+          <%= fa.label :street, 'Rua' %>
+          <%= fa.text_field :street, placeholder: 'Rua' %>
+        </div>
+
+        <div class="form-input">
+          <%= fa.label :city, 'Cidade' %>
+          <%= fa.text_field :city, placeholder: 'Cidade' %>
+        </div>
+
+        <div class="form-input">
+          <%= fa.label :state, 'Estado' %>
+          <%= fa.text_field :state, placeholder: 'Estado' %>
+        </div>
+
+        <div class="form-input">
+          <%= fa.label :country, 'País' %>
+          <%= fa.text_field :country, placeholder: 'País' %>
+        </div>
+
+        <div class="form-input">
+          <%= fa.label :postal_code, 'Código Postal' %>
+          <%= fa.text_field :postal_code, placeholder: 'Código Postal' %>
+        </div>
       </div>
+    <% end %>
+  </div>
 
-      <div class="form-input">
-        <%= fa.label :city, 'Cidade' %>
-        <%= fa.text_field :city, placeholder: 'Cidade' %>
-      </div>
+  <div data-person-target="addAddress" class="space-y-8 my-12 text-center hidden">
+    <h1 class="mx-auto text-2xl font-medium">Nenhum endereço adicionado</h1>
 
-      <div class="form-input">
-        <%= fa.label :state, 'Estado' %>
-        <%= fa.text_field :state, placeholder: 'Estado' %>
-      </div>
-
-      <div class="form-input">
-        <%= fa.label :country, 'País' %>
-        <%= fa.text_field :country, placeholder: 'País' %>
-      </div>
-
-      <div class="form-input">
-        <%= fa.label :postal_code, 'Código Postal' %>
-        <%= fa.text_field :postal_code, placeholder: 'Código Postal' %>
-      </div>
-    </div>
-  <% end %>
+    <%= link_to 'javascript:void(0)', class: 'btn-primary w-1/5 mx-auto',
+                                      data: { action: 'person#toggleAddressVisible' } do %>
+      Adicionar Endereço
+    <% end %>
+  </div>
 
   <div class="flex justify-between">
     <%= link_to 'Voltar', people_path, class: 'btn-secondary' %>
