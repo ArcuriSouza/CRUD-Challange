@@ -4,6 +4,7 @@ module Validations
 
     included do
       validates :name, :email, presence: true
+      validates :email, uniqueness: true
     end
   end
 end

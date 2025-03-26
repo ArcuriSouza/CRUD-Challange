@@ -26,3 +26,10 @@ development:
   database: crud_challange_development
   username: postgres
   password: password
+
+test:
+  <<: *default
+  host: 127.0.0.1
+  database: crud_challange_test
+  username: postgres
+  password: password

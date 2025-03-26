@@ -3,7 +3,7 @@ module Validations
     extend ActiveSupport::Concern
 
     included do
-      validates :street, :city, :state, presence: true
+      validates :street, :city, :state, :country, presence: true
     end
   end
 end
