@@ -32,9 +32,6 @@ export default class extends Controller {
     }
   }
 
-  changeAddressVisible() {
-  }
-
   toggleAddressVisible() {
     this.addressVisibleValue = !this.addressVisibleValue
   }
