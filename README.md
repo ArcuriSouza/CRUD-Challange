@@ -16,7 +16,7 @@ This project is a simple CRUD (Create, Read, Update, Delete) application for man
 Clone the repository and navigate to the project directory:
 
 ```bash
-git clone https://github.com/yourusername/yourproject.git
+git clone git@github.com:ArcuriSouza/CRUD-Challange.git
 cd yourproject
 ```
 
