@@ -4,3 +4,8 @@ pt:
       messages:
         blank: '%{attribute} deve ser preenchido'
         taken: '%{attribute} já está em uso'
+      models:
+        person:
+          attributes:
+            birthdate:
+              less_than: '%{attribute} deve ser menor do que hoje'

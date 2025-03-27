@@ -45,6 +45,11 @@
       <%= fa.hidden_field :_destroy %>
 
       <div class="grid grid-cols-2 gap-4 mt-4">
+        <div class="col-span-2 w-1/2 form-input">
+          <%= fa.label :postal_code %>
+          <%= fa.text_field :postal_code, placeholder: 'Código Postal' %>
+        </div>
+
         <div class="form-input">
           <%= fa.label :street %>
           <%= fa.text_field :street, placeholder: 'Rua' %>
@@ -63,11 +68,6 @@
         <div class="form-input">
           <%= fa.label :country %>
           <%= fa.text_field :country, placeholder: 'País' %>
-        </div>
-
-        <div class="form-input">
-          <%= fa.label :postal_code %>
-          <%= fa.text_field :postal_code, placeholder: 'Código Postal' %>
         </div>
       </div>
     <% end %>

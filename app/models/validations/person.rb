@@ -4,6 +4,8 @@ module Validations
 
     included do
       validates :name, :email, presence: true
+      validates :birthdate, comparison: { less_than: Date.current },
+                            if: -> { birthdate.present? }
       validates :phone, format: { with: /\A\([0-9]{2}\) [0-9]{5}-[0-9]{4}\z/,
                                   message: "%{attribute} deve ser no formato (00) 00000-0000" },
                         if: -> { phone.present? }
