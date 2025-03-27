@@ -26,7 +26,7 @@ Ensure you have the required Ruby version (3.4.1). You can use a version manager
 bundle install
 ```
 
-Configure your `config/database.yml` with the correct database credentials. Example for PostgreSQL:
+Configure your `config/database.yml` with the correct database credentials.
 
 Set up the database:
 
