@@ -17,7 +17,7 @@ Clone the repository and navigate to the project directory:
 
 ```bash
 git clone git@github.com:ArcuriSouza/CRUD-Challange.git
-cd yourproject
+cd CRUD-Challange
 ```
 
 Ensure you have the required Ruby version (3.4.1). You can use a version manager like `rbenv` or `rvm`. Then install dependencies:
