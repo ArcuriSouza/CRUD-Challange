@@ -1,0 +1,6 @@
+pt:
+  activerecord:
+    errors:
+      messages:
+        blank: '%{attribute} deve ser preenchido'
+        taken: '%{attribute} já está em uso'

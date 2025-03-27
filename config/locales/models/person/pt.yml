@@ -1,0 +1,7 @@
+pt:
+  activerecord:
+    attributes:
+      person:
+        name: "Nome"
+        phone: "Telefone"
+        birthdate: "Data de Nascimento"

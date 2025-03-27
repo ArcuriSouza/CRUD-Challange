@@ -1,0 +1,9 @@
+pt:
+  activerecord:
+    attributes:
+      address:
+        street: "Rua"
+        city: "Cidade"
+        state: "Estado"
+        country: "País"
+        postal_code: "Código Postal"

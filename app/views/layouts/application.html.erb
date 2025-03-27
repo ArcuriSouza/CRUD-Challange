@@ -16,6 +16,7 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
@@ -31,5 +32,19 @@
     </main>
 
     <script src="https://kit.fontawesome.com/34758eb559.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+      IMask(document.querySelector('.phone-mask'), { mask: '(00) 00000-0000' });
+      flatpickr(".date-mask", {
+        dateFormat: 'Y-m-d',
+        altFormat: 'd/m/Y',
+        altInput: true,
+      });
+    </script>
+
+    <script>
+    </script>
   </body>
 </html>

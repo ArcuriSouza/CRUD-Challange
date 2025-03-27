@@ -12,6 +12,13 @@ RSpec.describe Person, type: :model do
       it { is_expected.to validate_presence_of(:email) }
     end
 
+    describe 'Format' do
+      it { is_expected.to allow_value("(12) 34567-8901").for(:phone) }
+      it { is_expected.not_to allow_value("12345678901").for(:phone) }
+      it { is_expected.not_to allow_value("(12) 3456-7890").for(:phone) }
+      it { is_expected.not_to allow_value("(ab) cdefg-hijk").for(:phone) }
+    end
+
     describe 'Uniqueness' do
       describe '#email' do
         let!(:first_person) { create(:person) }

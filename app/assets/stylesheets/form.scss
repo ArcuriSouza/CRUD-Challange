@@ -1,4 +1,9 @@
 form {
+  .field_with_errors input {
+    @apply w-full;
+    @apply border-red-500;
+  }
+
   i {
     @apply pointer-events-none;
   }

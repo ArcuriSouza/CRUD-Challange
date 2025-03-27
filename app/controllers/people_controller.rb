@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
     if @person.save
       redirect_to people_path
     else
-      render :new
+      render :new, status: :found
     end
   end
 
@@ -28,7 +28,9 @@ class PeopleController < ApplicationController
     if @person.update(person_params)
       redirect_to people_path
     else
-      render :edit
+      @person.build_address if @person.address.nil?
+
+      render :edit, status: :found
     end
   end
 

@@ -1,7 +1,15 @@
-<%= form_for @person, html: { class: 'space-y-6', data: { controller: 'person', 'person-address-visible-value': @person.address&.persisted? } } do |f| %>
+<%= form_for @person, html: { class: 'space-y-6', data: { controller: 'person', 'person-address-visible-value': @person.address&.persisted? || @person.address&.errors&.any? } } do |f| %>
+  <% if @person.errors.any? %>
+    <ul class="mt-4 text-red-600 list-disc ml-4">
+      <% @person.errors.map do |error| %>
+        <li><%= error.message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div class="grid grid-cols-2 gap-4 mt-4" >
     <div class="form-input">
-      <%= f.label :name, 'Nome' %>
+      <%= f.label :name %>
       <%= f.text_field :name, placeholder: 'Nome' %>
     </div>
 
@@ -11,13 +19,13 @@
     </div>
 
     <div class="form-input">
-      <%= f.label :phone, 'Telefone' %>
-      <%= f.text_field :phone, placeholder: '(XX) XXXXX-XXXX' %>
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: 'phone-mask', placeholder: '(XX) XXXXX-XXXX' %>
     </div>
 
     <div class="form-input">
-      <%= f.label :birthdate, 'Data de Nascimento' %>
-      <%= f.text_field :birthdate, placeholder: 'dd/mm/yyyy' %>
+      <%= f.label :birthdate %>
+      <%= f.text_field :birthdate, class: 'w-full date-mask', placeholder: 'dd/mm/yyyy' %>
     </div>
   </div>
 
@@ -38,27 +46,27 @@
 
       <div class="grid grid-cols-2 gap-4 mt-4">
         <div class="form-input">
-          <%= fa.label :street, 'Rua' %>
+          <%= fa.label :street %>
           <%= fa.text_field :street, placeholder: 'Rua' %>
         </div>
 
         <div class="form-input">
-          <%= fa.label :city, 'Cidade' %>
+          <%= fa.label :city %>
           <%= fa.text_field :city, placeholder: 'Cidade' %>
         </div>
 
         <div class="form-input">
-          <%= fa.label :state, 'Estado' %>
+          <%= fa.label :state %>
           <%= fa.text_field :state, placeholder: 'Estado' %>
         </div>
 
         <div class="form-input">
-          <%= fa.label :country, 'País' %>
+          <%= fa.label :country %>
           <%= fa.text_field :country, placeholder: 'País' %>
         </div>
 
         <div class="form-input">
-          <%= fa.label :postal_code, 'Código Postal' %>
+          <%= fa.label :postal_code %>
           <%= fa.text_field :postal_code, placeholder: 'Código Postal' %>
         </div>
       </div>

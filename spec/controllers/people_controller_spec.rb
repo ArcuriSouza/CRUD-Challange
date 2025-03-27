@@ -78,7 +78,7 @@ RSpec.describe PeopleController, type: :controller do
 
         it 'person should not be valid' do
           expect(assigns(:person)).not_to be_valid
-          expect(assigns(:person).errors[:name]).to include("can't be blank")
+          expect(assigns(:person).errors[:name]).to include("Nome deve ser preenchido")
         end
 
         it 'should render new action' do
@@ -111,7 +111,7 @@ RSpec.describe PeopleController, type: :controller do
 
         it 'person should not be valid' do
           expect(assigns(:person)).not_to be_valid
-          expect(assigns(:person).errors[:name]).to include("can't be blank")
+          expect(assigns(:person).errors[:name]).to include("Nome deve ser preenchido")
         end
 
         it 'should render edit action' do
