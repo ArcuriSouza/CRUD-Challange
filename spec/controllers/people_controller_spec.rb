@@ -125,7 +125,7 @@ RSpec.describe PeopleController, type: :controller do
     {
       person: {
         name: valid ? 'Jessica Doe' : nil,
-        email: 'jessica.doe@example.com',
+        email: 'jessica.doe@example.com'
       }
     }
   end

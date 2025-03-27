@@ -21,9 +21,9 @@ gem "thruster", require: false
 group :development, :test do
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
-  gem 'rspec-rails', '~> 7.1.1'
+  gem "rspec-rails", "~> 7.1.1"
   gem "rails-controller-testing", "~> 1.0"
-  gem 'factory_bot_rails'
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -35,6 +35,5 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
-  gem 'shoulda-matchers', '~> 6.0'
+  gem "shoulda-matchers", "~> 6.0"
 end
-

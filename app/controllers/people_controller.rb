@@ -37,7 +37,7 @@ class PeopleController < ApplicationController
   def destroy
     @person.destroy
 
-    redirect_to people_path, notice: 'sucesso'
+    redirect_to people_path, notice: "sucesso"
   end
 
   private
