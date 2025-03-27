@@ -28,7 +28,7 @@ end
 
 group :development do
   gem "debug", "~> 1.10"
-  gem "rubocop", "~> 1.74"
+  gem "rubocop", "~> 1.75"
   gem "web-console"
 end
 
