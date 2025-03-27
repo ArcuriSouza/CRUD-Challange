@@ -28,25 +28,6 @@ bundle install
 
 Configure your `config/database.yml` with the correct database credentials. Example for PostgreSQL:
 
-```yaml
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: 127.0.0.1
-  username: your_username
-  password: your_password
-
-
-development:
-  <<: *default
-  database: crud_challange_development
-
-test:
-  <<: *default
-  database: crud_challange_test
-```
-
 Set up the database:
 
 ```bash
